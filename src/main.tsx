@@ -14,4 +14,7 @@ const App = () => {
     </div>
 }
 setTimeout(()=>"",5000)
-root.render(<App/>)
+const messageList = document.getElementsByClassName('messageHasBorder bordered');
+console.log(messageList)
+//messageList[1].getElementsByClassName('_speakerName')[0].innerText = 'aiueo'
+//root.render(<App/>)
