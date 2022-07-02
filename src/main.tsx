@@ -13,5 +13,5 @@ const App = () => {
         <h1>Hello React! </h1>
     </div>
 }
-
+setTimeout(()=>"",5000)
 root.render(<App/>)
