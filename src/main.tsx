@@ -1,8 +1,17 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
-const  App = () => <div>
-    <h1>Hello React!</h1>
-</div>
-console.log("aiueo")
-ReactDOM.render(<App/>, document.querySelector('#app'));
+const container: Element | null = document.querySelector('#root');
+if(container === null) {
+    throw new Error('container is null');
+}
+const root = createRoot(container);
+
+const App = () => {
+    console.log("wefa")
+    return <div>
+        <h1>Hello React! </h1>
+    </div>
+}
+
+root.render(<App/>)
