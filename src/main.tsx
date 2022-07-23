@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { MessageUtilAreaModel } from './dom/model/MessageUtilAreaModel';
-import { MessageReader } from './dom/reader/MessageReader';
 import { MessageUtilAreaReader } from './dom/reader/MessageUtilAreaReader';
 
 const container: Element | null = document.querySelector('#root');

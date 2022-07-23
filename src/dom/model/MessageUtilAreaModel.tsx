@@ -12,8 +12,5 @@ export class MessageUtilAreaModel{
         const muskButton = document.createElement('button');
         muskButton.textContent = 'マスク';
         this.value.appendChild(muskButton);
-        console.log('テスト')
-        console.log(this.value);
-        console.log('テスト１')
     }
 }
