@@ -1,1 +1,1 @@
-console.log("あいうえお");
+console.log('あいうえお')
