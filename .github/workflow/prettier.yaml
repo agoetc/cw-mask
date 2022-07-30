@@ -1,0 +1,28 @@
+name: Pretter
+
+on: [ push ]
+
+jobs:
+  prettier-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Run Prettier
+        run: |
+          npm install
+          npm run format
+      - name: commit & push
+        run: |
+          if ! git diff --exit-code --quiet
+          then
+            git config --local user.email "tkgw666private@gmail.com"
+            git config --local user.name "agoetc"
+            git add -A
+            git commit -m "[ci] format"
+            git push origin $GITHUB_HEAD_REF
+          fi
