@@ -1,7 +1,7 @@
 export class MessageReader {
     // TODO: ユビキタス言語を選定する
-    getMessageList = () => {
-        const messageList: HTMLCollectionOf<Element> = document.getElementsByClassName(
+    getMessageList = (): HTMLCollectionOf<Element> => {
+        return document.getElementsByClassName(
             'messageHasBorder bordered'
         )
     }
