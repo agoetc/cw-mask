@@ -1,12 +1,19 @@
 import { MessageUtilArea } from '../component/MessageUtilArea'
 
-export class MessageUtilAreaReader {
+export const MessageUtilAreaReader = {
     /**
      * @see https://www.notion.so/a672b2292c5e4db5811e05bae1e38fe1
      */
-    static readMessageUtilArea = (): MessageUtilArea => {
-        const messageInputArea: Element = document.getElementsByClassName('sc-ikZpkk gXkDBz')[0]
+    read(): MessageUtilArea {
+        const messageInputArea: HTMLCollectionOf<Element> =
+            document.getElementsByClassName('sc-ikZpkk gXkDBz')
 
-        return new MessageUtilArea(messageInputArea)
-    }
+        const messageUtilArea = messageInputArea.item(0)
+        if (messageUtilArea === null) {
+            console.log(messageUtilArea)
+            throw Error('ReaderError: can not read message-input-area')
+        } else {
+            return new MessageUtilArea(messageUtilArea)
+        }
+    },
 }
