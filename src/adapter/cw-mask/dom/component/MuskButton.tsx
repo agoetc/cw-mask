@@ -4,5 +4,4 @@ const MuskButton = () => {
     return <button>マスクボタン</button>
 }
 
-
 export default MuskButton
