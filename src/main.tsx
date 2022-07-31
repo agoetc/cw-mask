@@ -1,6 +1,7 @@
 // import * as React from 'react'
 // import { createRoot } from 'react-dom/client'
-import { MessageUtilAreaReader } from './dom/reader/MessageUtilAreaReader'
+import { MessageUtilAreaAppender } from './adapter/original-chatwork/dom/appender/MessageUtilAreaAppender'
+import { MessageUtilAreaReader } from './adapter/original-chatwork/dom/reader/MessageUtilAreaReader'
 
 const container: Element | null = document.querySelector('#root')
 if (container === null) {
@@ -20,5 +21,5 @@ if (container === null) {
 //messageList[1].getElementsByClassName('_speakerName')[0].innerText = 'aiueo'
 //root.render(<App/>)
 
-const messageUtilArea = MessageUtilAreaReader.getMessageUtilArea()
-messageUtilArea.appendMuskButton()
+const messageUtilArea = MessageUtilAreaReader.readMessageUtilArea()
+MessageUtilAreaAppender.appendMuskButton(messageUtilArea)
