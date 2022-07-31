@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 const MuskButton = () => {
-    return <button>マスクボタン</button>
+    return <button>マスク</button>
 }
 
 export default MuskButton
