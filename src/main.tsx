@@ -1,6 +1,6 @@
 // import * as React from 'react'
 // import { createRoot } from 'react-dom/client'
-import { MessageUtilAreaReader } from './dom/reader/MessageUtilAreaReader'
+import { MessageUtilAreaReader } from './adapter/original-chatwork/dom/reader/MessageUtilAreaReader'
 
 const container: Element | null = document.querySelector('#root')
 if (container === null) {
