@@ -1,25 +1,14 @@
-// import * as React from 'react'
-// import { createRoot } from 'react-dom/client'
-import { MessageUtilAreaAppender } from './adapter/original-chatwork/dom/appender/MessageUtilAreaAppender'
+import * as React from 'react'
+import { createRoot } from 'react-dom/client'
+import MuskForm from './adapter/cw-mask/dom/component/MuskForm'
+import { MessageUtilArea } from './adapter/original-chatwork/dom/component/MessageUtilArea'
 import { MessageUtilAreaReader } from './adapter/original-chatwork/dom/reader/MessageUtilAreaReader'
 
-const container: Element | null = document.querySelector('#root')
-if (container === null) {
-    throw new Error('container is null')
+window.onload = () => setTimeout(main, 2000)
+
+const main = () => {
+    const messageUtilArea: MessageUtilArea = MessageUtilAreaReader.read()
+    const messageUtilAreaRoot = createRoot(messageUtilArea.value)
+
+    messageUtilAreaRoot.render(<MuskForm />)
 }
-// const root = createRoot(container)
-
-// const App = () => {
-//     console.log('wefa')
-//     return (
-//         <div>
-//             <h1>Hello React! </h1>
-//         </div>
-//     )
-// }
-// setTimeout(() => '', 5000)
-//messageList[1].getElementsByClassName('_speakerName')[0].innerText = 'aiueo'
-//root.render(<App/>)
-
-const messageUtilArea = MessageUtilAreaReader.readMessageUtilArea()
-MessageUtilAreaAppender.appendMuskButton(messageUtilArea)
