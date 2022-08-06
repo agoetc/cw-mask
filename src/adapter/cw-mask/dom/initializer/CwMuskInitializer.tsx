@@ -15,7 +15,7 @@ const buildRootElement = () => {
 export const CwMuskInitializer = () => {
     const messageUtilArea: Element = MessageUtilAreaReader.read()
 
-    const rootElement:HTMLDivElement = buildRootElement()
+    const rootElement: HTMLDivElement = buildRootElement()
     const cwMuskRoot: Root = createRoot(rootElement)
 
     // original-chatworkにRootElementを追加
