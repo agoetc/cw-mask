@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createRoot, Root } from 'react-dom/client'
-import { MessageUtilAreaReader } from '../../../original-chatwork/dom/reader/MessageUtilAreaReader'
+import { MessageUtilAreaReader } from '../../original-chatwork/reader/MessageUtilAreaReader'
 import MuskForm from '../component/MuskForm'
 
 const ROOT_ID = 'musk-button-root'

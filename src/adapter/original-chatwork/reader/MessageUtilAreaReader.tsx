@@ -1,4 +1,4 @@
-import { DOMUtil } from '../../../../util/dom/DOMUtil'
+import { DOMUtil } from '../../../util/dom/DOMUtil'
 
 const MESSAGE_UTIL_AREA_CLASS_NAME = 'sc-ikZpkk gXkDBz'
 
