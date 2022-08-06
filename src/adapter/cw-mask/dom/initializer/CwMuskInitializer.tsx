@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { createRoot, Root } from 'react-dom/client'
-import { MessageUtilArea } from '../../../original-chatwork/dom/component/MessageUtilArea'
 import { MessageUtilAreaReader } from '../../../original-chatwork/dom/reader/MessageUtilAreaReader'
 import MuskForm from '../component/MuskForm'
 
@@ -14,14 +13,14 @@ const buildRootElement = () => {
 }
 
 export const CwMuskInitializer = () => {
-    const messageUtilArea: MessageUtilArea = MessageUtilAreaReader.read()
+    const messageUtilArea: Element = MessageUtilAreaReader.read()
 
     const rootElement:HTMLDivElement = buildRootElement()
-    const messageUtilAreaRoot: Root = createRoot(rootElement)
+    const cwMuskRoot: Root = createRoot(rootElement)
 
     // original-chatworkにRootElementを追加
     messageUtilArea.prepend(rootElement)
 
-    // RootElementをcw-muskで置き換え
-    messageUtilAreaRoot.render(<MuskForm />)
+    // 追加したRootElementをcw-muskの要素に置き換え
+    cwMuskRoot.render(<MuskForm />)
 }
