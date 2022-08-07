@@ -4,7 +4,7 @@ import MuskButton from './MuskButton'
 const MuskForm = () => {
     return (
         <div>
-            <MuskButton />
+            <MuskButton onClick={() => console.log('test')} />
         </div>
     )
 }
