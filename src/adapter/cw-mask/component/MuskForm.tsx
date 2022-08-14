@@ -4,11 +4,10 @@ import { MessageListModel } from '../model/MessageListModel'
 import MuskButton from './MuskButton'
 
 const MuskForm = () => {
-
     const musk = () => {
         console.log('test')
         const messageList: HTMLCollectionOf<Element> = MessageReader.getMessageList()
-        const messageListModel = MessageListModel(messageList)    
+        const messageListModel = MessageListModel(messageList)
         messageListModel.setSpeakerName()
     }
     return (
