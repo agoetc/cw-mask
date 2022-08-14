@@ -5,8 +5,9 @@ import MuskButton from './MuskButton'
 const MuskForm = () => {
     const musk = () => {
         console.log('test')
-        const messageList:  HTMLCollectionOf<Element>= MessageReader.getMessageList()
-        const speakerName: HTMLCollectionOf<Element>= messageList[1].getElementsByClassName('_speakerName')
+        const messageList: HTMLCollectionOf<Element> = MessageReader.getMessageList()
+        const speakerName: HTMLCollectionOf<Element> =
+            messageList[1].getElementsByClassName('_speakerName')
         const hoge = speakerName[0] as HTMLElement
         hoge.innerText = 'aiueo'
     }
