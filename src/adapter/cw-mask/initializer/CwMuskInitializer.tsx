@@ -10,7 +10,7 @@ export const CwMuskInitializer = () => {
     const rootElement: HTMLDivElement = document.createElement('div')
     messageUtilArea.prepend(rootElement)
 
-    // 追加したRootElementをcw-muskの要素に置き換え
+    // 追加したRootElementをcw-maskの要素に置き換え
     const cwMuskRoot: Root = createRoot(rootElement)
     cwMuskRoot.render(<MuskForm />)
 }
