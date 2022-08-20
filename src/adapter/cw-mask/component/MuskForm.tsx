@@ -1,10 +1,18 @@
 import * as React from 'react'
+import { MessageReader } from '../../original-chatwork/reader/MessageReader'
+import { MessageListModel } from '../model/MessageListModel'
 import MuskButton from './MuskButton'
 
 const MuskForm = () => {
+    const musk = () => {
+        console.log('test')
+        const messageList: HTMLCollectionOf<Element> = MessageReader.getMessageList()
+        const messageListModel = MessageListModel(messageList)
+        messageListModel.getSpeakerName()
+    }
     return (
         <div>
-            <MuskButton onClick={() => console.log('test')} />
+            <MuskButton onClick={musk} />
         </div>
     )
 }
