@@ -13,7 +13,9 @@ export class MessageListModel {
             speakerName.innerText = 'aiueo'
         })
     }
-    private getSpeakerName = (message:HTMLElement): HTMLElement => {
-        return DOMUtil.checkNull(message.getElementsByClassName('_speakerName').item(0)) as HTMLElement
+    private getSpeakerName = (message: HTMLElement): HTMLElement => {
+        return DOMUtil.checkNull(
+            message.getElementsByClassName('_speakerName').item(0)
+        ) as HTMLElement
     }
 }
