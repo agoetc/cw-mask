@@ -8,7 +8,7 @@ const MuskForm = () => {
         console.log('test')
         const messageList: HTMLCollectionOf<Element> = MessageReader.getMessageList()
         const messageListModel = MessageListModel(messageList)
-        messageListModel.getSpeakerName()
+        messageListModel.setSpeakerName()
     }
     return (
         <div>
