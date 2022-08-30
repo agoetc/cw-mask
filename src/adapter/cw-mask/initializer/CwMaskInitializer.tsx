@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { createRoot, Root } from 'react-dom/client'
 import { MessageUtilAreaReader } from '../../original-chatwork/reader/MessageUtilAreaReader'
-import MuskForm from '../component/MuskForm'
+import MaskForm from '../component/MaskForm'
 
-export const CwMuskInitializer = () => {
+export const CwMaskInitializer = () => {
     const messageUtilArea: Element = MessageUtilAreaReader.read()
 
     // original-chatworkにRootElementを追加
@@ -11,6 +11,6 @@ export const CwMuskInitializer = () => {
     messageUtilArea.prepend(rootElement)
 
     // 追加したRootElementをcw-maskの要素に置き換え
-    const cwMuskRoot: Root = createRoot(rootElement)
-    cwMuskRoot.render(<MuskForm />)
+    const cwMaskRoot: Root = createRoot(rootElement)
+    cwMaskRoot.render(<MaskForm />)
 }

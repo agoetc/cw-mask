@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-const MuskButton = (props: { onClick: () => void }) => {
+const MaskButton = (props: { onClick: () => void }) => {
     return <button onClick={props.onClick}>マスク</button>
 }
 
-export default MuskButton
+export default MaskButton
