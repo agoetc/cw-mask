@@ -1,7 +1,7 @@
-import { CwMuskInitializer } from './adapter/cw-mask/initializer/CwMuskInitializer'
+import { CwMaskInitializer } from './adapter/cw-mask/initializer/CwMaskInitializer'
 
 window.onload = () => setTimeout(main, 1000)
 
 const main = () => {
-    CwMuskInitializer()
+    CwMaskInitializer()
 }
