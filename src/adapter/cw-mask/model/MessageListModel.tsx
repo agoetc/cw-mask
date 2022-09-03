@@ -8,9 +8,23 @@ export class MessageListModel {
     }
 
     setSpeakerName = () => {
+        const namePairList: NamePair[] = []
+        let num = 1
         Array.prototype.forEach.call(this.messageList, (message) => {
             const speakerName = this.getSpeakerName(message)
-            speakerName.innerText = 'aiueo'
+            const namePair = namePairList.find((namePair) => {
+                return namePair.originalName == speakerName.innerText
+            })
+            if (namePair === undefined) {
+                namePairList.push({
+                    originalName: speakerName.innerText,
+                    maskedName: num.toString(),
+                })
+                speakerName.innerText = num.toString()
+                num++
+            } else {
+                speakerName.innerText = namePair.maskedName
+            }
         })
     }
     private getSpeakerName = (message: HTMLElement): HTMLElement => {
@@ -18,4 +32,8 @@ export class MessageListModel {
             message.getElementsByClassName('_speakerName').item(0)
         ) as HTMLElement
     }
+}
+type NamePair = {
+    originalName: string
+    maskedName: string
 }
