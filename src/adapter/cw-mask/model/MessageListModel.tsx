@@ -13,7 +13,6 @@ export class MessageListModel {
         Array.prototype.forEach.call(this.messageList, (message) => {
             const speakerName = this.getSpeakerName(message)
             speakerName.innerText = this.buildMaskName(speakerName)
-            
         })
     }
 
@@ -23,11 +22,11 @@ export class MessageListModel {
         ) as HTMLElement
     }
 
-    private buildMaskName = (speakerName : HTMLElement): string => {
+    private buildMaskName = (speakerName: HTMLElement): string => {
         const namePair = this.namePairList.find((namePair) => {
             return namePair.originalName == speakerName.innerText
         })
-        let maskName: string 
+        let maskName: string
         if (namePair === undefined) {
             this.namePairList.push({
                 originalName: speakerName.innerText,
@@ -35,7 +34,6 @@ export class MessageListModel {
             })
             maskName = this.num.toString()
             this.num++
-            
         } else {
             maskName = namePair.maskedName
         }
