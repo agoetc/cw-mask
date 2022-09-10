@@ -1,10 +1,10 @@
 import { DOMUtil } from '../../../util/dom/DOMUtil'
+import { MaskContentsManager } from '../domain/MaskContentsManager'
 import { AnimalContents, animalStorage } from '../storage/AnimalStorage'
 
 export class MessageListModel {
     private messageList: HTMLCollectionOf<Element>
-    private namePairList: NamePair[] = []
-    private storage: AnimalContents[] = animalStorage
+    private maskContentsManager = new MaskContentsManager()
 
     constructor(messageList: HTMLCollectionOf<Element>) {
         this.messageList = messageList
@@ -13,7 +13,7 @@ export class MessageListModel {
     setSpeakerName = () => {
         Array.prototype.forEach.call(this.messageList, (message) => {
             const speakerName = this.getSpeakerName(message)
-            speakerName.innerText = this.buildMaskName(speakerName)
+            speakerName.innerText = this.getMaskName(speakerName)
         })
     }
 
@@ -23,34 +23,14 @@ export class MessageListModel {
         ) as HTMLElement
     }
 
-    private buildMaskName = (speakerName: HTMLElement): string => {
-        const namePair = this.namePairList.find((namePair) => {
-            return namePair.originalName == speakerName.innerText
-        })
-        let maskName: string
+    private getMaskName = (speakerName: HTMLElement): string => {
+        const namePair = this.maskContentsManager.findNamePair(speakerName.innerText)
         if (namePair === undefined) {
-            const maskedName = this.popStorage().name
-            this.namePairList.push({
-                originalName: speakerName.innerText,
-                maskedName: maskedName,
-            })
-            maskName = maskedName
+            return this.maskContentsManager.popMaskContents(speakerName.innerText)
         } else {
-            maskName = namePair.maskedName
+            return namePair.maskedName
         }
-        return maskName
-    }
-
-    private popStorage = (): AnimalContents =>{
-        const contents = this.storage.pop()
-        if(contents === undefined){
-            throw new Error("empty storage")
-        }
-        return contents
     }
 }
 
-type NamePair = {
-    originalName: string
-    maskedName: string
-}
+
