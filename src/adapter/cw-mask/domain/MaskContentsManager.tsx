@@ -1,8 +1,8 @@
-import { AnimalContents, animalStorage } from '../storage/AnimalStorage'
+import { MaskContents, maskContentsStorage } from '../storage/MaskContentsStorage'
 
 export class MaskContentsManager {
     private namePairList: NamePair[] = []
-    private storage: AnimalContents[] = animalStorage
+    private storage: MaskContents[] = maskContentsStorage
 
     findNamePair = (speakerName: string): NamePair | undefined => {
         return this.namePairList.find((namePair) => {
@@ -19,7 +19,7 @@ export class MaskContentsManager {
         return maskedName
     }
 
-    private popStorage = (): AnimalContents => {
+    private popStorage = (): MaskContents => {
         const contents = this.storage.pop()
         if (contents === undefined) {
             throw new Error('empty storage')

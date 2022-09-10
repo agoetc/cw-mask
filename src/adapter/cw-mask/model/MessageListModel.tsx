@@ -1,6 +1,5 @@
 import { DOMUtil } from '../../../util/dom/DOMUtil'
 import { MaskContentsManager } from '../domain/MaskContentsManager'
-import { AnimalContents, animalStorage } from '../storage/AnimalStorage'
 
 export class MessageListModel {
     private messageList: HTMLCollectionOf<Element>

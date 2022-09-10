@@ -1,8 +1,8 @@
-export const animalStorage: AnimalContents[] = [
+export const maskContentsStorage: MaskContents[] = [
     { name: 'きりん' },
     { name: 'らいおん' },
     { name: 'いぬ' },
 ]
-export type AnimalContents = {
+export type MaskContents = {
     name: string
 }
