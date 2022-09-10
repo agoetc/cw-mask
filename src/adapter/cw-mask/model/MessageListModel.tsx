@@ -1,9 +1,10 @@
 import { DOMUtil } from '../../../util/dom/DOMUtil'
+import { AnimalContents, animalStorage } from '../storage/AnimalStorage'
 
 export class MessageListModel {
     private messageList: HTMLCollectionOf<Element>
     private namePairList: NamePair[] = []
-    private num = 1
+    private storage: AnimalContents[] = animalStorage
 
     constructor(messageList: HTMLCollectionOf<Element>) {
         this.messageList = messageList
@@ -28,16 +29,24 @@ export class MessageListModel {
         })
         let maskName: string
         if (namePair === undefined) {
+            const maskedName = this.popStorage().name
             this.namePairList.push({
                 originalName: speakerName.innerText,
-                maskedName: this.num.toString(),
+                maskedName: maskedName,
             })
-            maskName = this.num.toString()
-            this.num++
+            maskName = maskedName
         } else {
             maskName = namePair.maskedName
         }
         return maskName
+    }
+
+    private popStorage = (): AnimalContents =>{
+        const contents = this.storage.pop()
+        if(contents === undefined){
+            throw new Error("empty storage")
+        }
+        return contents
     }
 }
 
