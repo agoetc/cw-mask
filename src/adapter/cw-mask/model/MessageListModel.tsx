@@ -1,9 +1,9 @@
 import { DOMUtil } from '../../../util/dom/DOMUtil'
+import { MaskContentsManager } from '../domain/MaskContentsManager'
 
 export class MessageListModel {
     private messageList: HTMLCollectionOf<Element>
-    private namePairList: NamePair[] = []
-    private num = 1
+    private maskContentsManager = new MaskContentsManager()
 
     constructor(messageList: HTMLCollectionOf<Element>) {
         this.messageList = messageList
@@ -12,7 +12,7 @@ export class MessageListModel {
     setSpeakerName = () => {
         Array.prototype.forEach.call(this.messageList, (message) => {
             const speakerName = this.getSpeakerName(message)
-            speakerName.innerText = this.buildMaskName(speakerName)
+            speakerName.innerText = this.getMaskName(speakerName)
         })
     }
 
@@ -22,26 +22,12 @@ export class MessageListModel {
         ) as HTMLElement
     }
 
-    private buildMaskName = (speakerName: HTMLElement): string => {
-        const namePair = this.namePairList.find((namePair) => {
-            return namePair.originalName == speakerName.innerText
-        })
-        let maskName: string
+    private getMaskName = (speakerName: HTMLElement): string => {
+        const namePair = this.maskContentsManager.findNamePair(speakerName.innerText)
         if (namePair === undefined) {
-            this.namePairList.push({
-                originalName: speakerName.innerText,
-                maskedName: this.num.toString(),
-            })
-            maskName = this.num.toString()
-            this.num++
+            return this.maskContentsManager.popMaskContents(speakerName.innerText)
         } else {
-            maskName = namePair.maskedName
+            return namePair.maskedName
         }
-        return maskName
     }
-}
-
-type NamePair = {
-    originalName: string
-    maskedName: string
 }
