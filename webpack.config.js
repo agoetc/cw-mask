@@ -12,7 +12,7 @@ module.exports = {
         // 出力ファイル名
         filename: 'main.js',
         //assetModuleFilename: `${__dirname}/dist`
-        publicPath:''
+        publicPath: '',
     },
     module: {
         rules: [
