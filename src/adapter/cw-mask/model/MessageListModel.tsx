@@ -1,5 +1,6 @@
 import { DOMUtil } from '../../../util/dom/DOMUtil'
 import { MaskContentsManager } from '../domain/MaskContentsManager'
+import { MaskContents } from '../storage/MaskContentsStorage'
 
 export class MessageListModel {
     private messageList: HTMLCollectionOf<Element>
@@ -9,10 +10,18 @@ export class MessageListModel {
         this.messageList = messageList
     }
 
-    setSpeakerName = () => {
+    setContents = () => {
         Array.prototype.forEach.call(this.messageList, (message) => {
             const speakerName = this.getSpeakerName(message)
-            speakerName.innerText = this.getMaskName(speakerName)
+            const speakerIcon = this.getSpeakerIcon(message)
+            const originalContents: MaskContents = {
+                name: speakerName.innerText,
+                icon: speakerIcon.src,
+            }
+            const maskContents: MaskContents = this.getMaskContents(originalContents)
+
+            speakerName.innerText = maskContents.name
+            speakerIcon.src = maskContents.icon
         })
     }
 
@@ -22,12 +31,16 @@ export class MessageListModel {
         ) as HTMLElement
     }
 
-    private getMaskName = (speakerName: HTMLElement): string => {
-        const namePair = this.maskContentsManager.findNamePair(speakerName.innerText)
-        if (namePair === undefined) {
-            return this.maskContentsManager.popMaskContents(speakerName.innerText)
+    private getSpeakerIcon = (message: HTMLElement): HTMLImageElement => {
+        return DOMUtil.checkNull(message.getElementsByTagName('img').item(0))
+    }
+
+    private getMaskContents = (contents: MaskContents): MaskContents => {
+        const ContentsPair = this.maskContentsManager.findBySpeakerName(contents.name)
+        if (ContentsPair === undefined) {
+            return this.maskContentsManager.popMaskContents(contents)
         } else {
-            return namePair.maskedName
+            return ContentsPair.maskedContents
         }
     }
 }

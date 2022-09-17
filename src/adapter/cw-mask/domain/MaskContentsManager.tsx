@@ -1,22 +1,22 @@
 import { MaskContents, maskContentsStorage } from '../storage/MaskContentsStorage'
 
 export class MaskContentsManager {
-    private namePairList: NamePair[] = []
+    private contentsPairList: ContentsPair[] = []
     private storage: MaskContents[] = maskContentsStorage
 
-    findNamePair = (speakerName: string): NamePair | undefined => {
-        return this.namePairList.find((namePair) => {
-            return namePair.originalName == speakerName
+    findBySpeakerName = (speakerName: string): ContentsPair | undefined => {
+        return this.contentsPairList.find((contentsPair) => {
+            return contentsPair.originalContents.name == speakerName
         })
     }
 
-    popMaskContents = (speakerName: string): string => {
-        const maskedName = this.popStorage().name
-        this.namePairList.push({
-            originalName: speakerName,
-            maskedName: maskedName,
+    popMaskContents = (contents: MaskContents): MaskContents => {
+        const gotContents = this.popStorage()
+        this.contentsPairList.push({
+            originalContents: contents,
+            maskedContents: gotContents,
         })
-        return maskedName
+        return gotContents
     }
 
     private popStorage = (): MaskContents => {
@@ -28,7 +28,7 @@ export class MaskContentsManager {
     }
 }
 
-type NamePair = {
-    originalName: string
-    maskedName: string
+type ContentsPair = {
+    originalContents: MaskContents
+    maskedContents: MaskContents
 }

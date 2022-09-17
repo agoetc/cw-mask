@@ -8,7 +8,7 @@ const MaskForm = () => {
         console.log('test')
         const messageList: HTMLCollectionOf<Element> = MessageReader.getMessageList()
         const messageListModel = new MessageListModel(messageList)
-        messageListModel.setSpeakerName()
+        messageListModel.setContents()
     }
     return (
         <div>
