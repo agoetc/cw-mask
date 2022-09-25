@@ -16,12 +16,12 @@ export class MessageListModel {
             const speakerIcon = this.getSpeakerIcon(message)
             const originalContents: MaskContents = {
                 name: speakerName.innerText,
-                icon: speakerIcon.src,
+                iconPath: speakerIcon.src,
             }
             const maskContents: MaskContents = this.getMaskContents(originalContents)
 
             speakerName.innerText = maskContents.name
-            speakerIcon.src = maskContents.icon
+            speakerIcon.src = maskContents.iconPath
         })
     }
 
