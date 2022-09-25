@@ -11,8 +11,6 @@ module.exports = {
         path: `${__dirname}/dist`,
         // 出力ファイル名
         filename: 'main.js',
-        //assetModuleFilename: `${__dirname}/dist`
-        publicPath: '',
     },
     module: {
         rules: [
@@ -21,10 +19,6 @@ module.exports = {
                 test: /\.tsx?$/,
                 // TypeScript をコンパイルする
                 use: 'ts-loader',
-            },
-            {
-                test: /\.png/,
-                type: 'asset/resource',
             },
         ],
     },
