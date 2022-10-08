@@ -3,10 +3,10 @@ import { MaskContentsManager } from '../domain/MaskContentsManager'
 import { MaskContents } from '../storage/MaskContentsStorage'
 
 export class MessageListModel {
-    private messageList: HTMLCollectionOf<Element>
+    private messageList: Array<Element>
     private maskContentsManager = new MaskContentsManager()
 
-    constructor(messageList: HTMLCollectionOf<Element>) {
+    constructor(messageList: Array<Element>) {
         this.messageList = messageList
     }
 
