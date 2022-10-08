@@ -3,15 +3,15 @@ import { MaskContentsManager } from '../domain/MaskContentsManager'
 import { MaskContents } from '../storage/MaskContentsStorage'
 
 export class MessageListModel {
-    private messageList: HTMLCollectionOf<Element>
+    private messageList: Array<HTMLElement>
     private maskContentsManager = new MaskContentsManager()
 
-    constructor(messageList: HTMLCollectionOf<Element>) {
+    constructor(messageList: Array<HTMLElement>) {
         this.messageList = messageList
     }
 
     setContents = () => {
-        Array.prototype.forEach.call(this.messageList, (message) => {
+        this.messageList.forEach((message) => {
             const speakerName = this.getSpeakerName(message)
             const speakerIcon = this.getSpeakerIcon(message)
             const originalContents: MaskContents = {

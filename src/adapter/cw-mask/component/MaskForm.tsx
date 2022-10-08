@@ -5,8 +5,7 @@ import MaskButton from './MaskButton'
 
 const MaskForm = () => {
     const mask = () => {
-        console.log('test')
-        const messageList: HTMLCollectionOf<Element> = MessageReader.getMessageList()
+        const messageList = MessageReader.getMessageList()
         const messageListModel = new MessageListModel(messageList)
         messageListModel.setContents()
     }
