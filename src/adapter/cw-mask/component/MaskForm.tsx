@@ -7,14 +7,14 @@ import UnMaskButton from './UnMaskButton'
 
 const MaskForm = () => {
     const [isMask, setIsMask] = useState(false)
+    const messageListModel = new MessageListModel(MessageReader.getMessageList())
     const mask = () => {
         setIsMask(true)
-        const messageList = MessageReader.getMessageList()
-        const messageListModel = new MessageListModel(messageList)
         messageListModel.setContents()
     }
     const unMask = () => {
         setIsMask(false)
+        //messageListModel.unSetContents()
     }
     if (isMask) {
         return (
