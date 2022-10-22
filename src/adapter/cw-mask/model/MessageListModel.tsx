@@ -8,6 +8,7 @@ export class MessageListModel {
 
     constructor(messageList: Array<HTMLElement>) {
         this.messageList = messageList
+        console.log('messageListModelのコンストラクタ')
     }
 
     setContents = () => {
@@ -25,6 +26,19 @@ export class MessageListModel {
         })
     }
 
+    unSetContents = () => {
+        this.messageList.forEach((message) => {
+            const maskedSpeakerName = this.getSpeakerName(message)
+            const speakerIcon = this.getSpeakerIcon(message)
+            const contentsPair = this.maskContentsManager.findByMaskedSpeakerName(maskedSpeakerName.innerText)
+            if(contentsPair === undefined){
+                throw new Error('maskされたcontentsが見つかりませんでした。')
+            }
+            maskedSpeakerName.innerText = contentsPair.originalContents.name
+            speakerIcon.src = contentsPair.originalContents.iconPath
+        })
+    }
+
     private getSpeakerName = (message: HTMLElement): HTMLElement => {
         return DOMUtil.checkNull(
             message.getElementsByClassName('_speakerName').item(0)
@@ -35,10 +49,10 @@ export class MessageListModel {
         return DOMUtil.checkNull(message.getElementsByTagName('img').item(0))
     }
 
-    private getMaskContents = (contents: MaskContents): MaskContents => {
-        const ContentsPair = this.maskContentsManager.findBySpeakerName(contents.name)
+    private getMaskContents = (originalContents: MaskContents): MaskContents => {
+        const ContentsPair = this.maskContentsManager.findBySpeakerName(originalContents.name)
         if (ContentsPair === undefined) {
-            return this.maskContentsManager.popMaskContents(contents)
+            return this.maskContentsManager.popMaskContents(originalContents)
         } else {
             return ContentsPair.maskedContents
         }

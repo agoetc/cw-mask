@@ -14,7 +14,7 @@ const MaskForm = () => {
     }
     const unMask = () => {
         setIsMask(false)
-        //messageListModel.unSetContents()
+        messageListModel.unSetContents()
     }
     if (isMask) {
         return (
