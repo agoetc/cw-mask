@@ -30,8 +30,10 @@ export class MessageListModel {
         this.messageList.forEach((message) => {
             const maskedSpeakerName = this.getSpeakerName(message)
             const speakerIcon = this.getSpeakerIcon(message)
-            const contentsPair = this.maskContentsManager.findByMaskedSpeakerName(maskedSpeakerName.innerText)
-            if(contentsPair === undefined){
+            const contentsPair = this.maskContentsManager.findByMaskedSpeakerName(
+                maskedSpeakerName.innerText
+            )
+            if (contentsPair === undefined) {
                 throw new Error('maskされたcontentsが見つかりませんでした。')
             }
             maskedSpeakerName.innerText = contentsPair.originalContents.name
