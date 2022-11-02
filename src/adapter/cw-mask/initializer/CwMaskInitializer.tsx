@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { createRoot, Root } from 'react-dom/client'
 import { MessageUtilAreaReader } from '../../original-chatwork/reader/MessageUtilAreaReader'
-import MaskForm from '../component/MaskForm'
+import MaskContainer from '../component/MaskContainer'
 
 export const CwMaskInitializer = () => {
     const messageUtilArea: Element = MessageUtilAreaReader.read()
@@ -12,5 +12,5 @@ export const CwMaskInitializer = () => {
 
     // 追加したRootElementをcw-maskの要素に置き換え
     const cwMaskRoot: Root = createRoot(rootElement)
-    cwMaskRoot.render(<MaskForm />)
+    cwMaskRoot.render(<MaskContainer />)
 }

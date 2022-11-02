@@ -5,7 +5,7 @@ import { MessageListModel } from '../model/MessageListModel'
 import MaskButton from './MaskButton'
 import UnMaskButton from './UnMaskButton'
 
-const MaskForm = () => {
+const MaskContainer = () => {
     const [isMask, setIsMask] = useState(false)
     const messageListModel = new MessageListModel(MessageReader.getMessageList())
 
@@ -21,4 +21,4 @@ const MaskForm = () => {
     return <div>{isMask ? <UnMaskButton onClick={unMask} /> : <MaskButton onClick={mask} />}</div>
 }
 
-export default MaskForm
+export default MaskContainer
