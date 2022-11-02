@@ -8,6 +8,7 @@ import UnMaskButton from './UnMaskButton'
 const MaskForm = () => {
     const [isMask, setIsMask] = useState(false)
     const messageListModel = new MessageListModel(MessageReader.getMessageList())
+
     const mask = () => {
         setIsMask(true)
         messageListModel.setContents()
@@ -16,19 +17,8 @@ const MaskForm = () => {
         setIsMask(false)
         messageListModel.unSetContents()
     }
-    if (isMask) {
-        return (
-            <div>
-                <UnMaskButton onClick={unMask} />
-            </div>
-        )
-    } else {
-        return (
-            <div>
-                <MaskButton onClick={mask} />
-            </div>
-        )
-    }
+
+    return <div>{isMask ? <UnMaskButton onClick={unMask} /> : <MaskButton onClick={mask} />}</div>
 }
 
 export default MaskForm
