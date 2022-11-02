@@ -41,10 +41,8 @@ export class MessageListModel {
         })
     }
 
-    private getSpeakerName = (message: HTMLElement): HTMLElement => {
-        return DOMUtil.checkNull(
-            message.getElementsByClassName('_speakerName').item(0)
-        ) as HTMLElement
+    private getSpeakerName = (message: HTMLElement): HTMLAnchorElement => {
+        return DOMUtil.checkNull(message.querySelector('[data-testid=timeline_user-name]'))
     }
 
     private getSpeakerIcon = (message: HTMLElement): HTMLImageElement => {
