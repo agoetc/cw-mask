@@ -14,5 +14,5 @@ jobs:
           node-version: 18.x
       - name: Run ESLint
         run: |
-          npm install
+          npm ci
           npm run eslint
