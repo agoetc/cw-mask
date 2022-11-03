@@ -1,4 +1,4 @@
-import { CwMaskInitializer } from './adapter/cw-mask/initializer/CwMaskInitializer'
+import { CwMaskInitializer } from './adapter/cw-mask/CwMaskInitializer'
 
 window.onload = () => setTimeout(main, 2000)
 

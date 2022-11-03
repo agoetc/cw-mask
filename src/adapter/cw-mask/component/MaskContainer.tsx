@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { useState } from 'react'
 import { MessageReader } from '../../original-chatwork/reader/MessageReader'
-import MaskButton from './MaskButton'
-import UnMaskButton from './UnMaskButton'
 import { MaskContentsPair } from '../domain/MaskContentsPair'
 import { MaskContents } from '../domain/MaskContents'
 import { popMaskContentsStorage } from '../storage/MaskContentsStorage'
@@ -45,7 +43,15 @@ const MaskContainer = () => {
         setIsMask(false)
     }
 
-    return <div>{isMask ? <UnMaskButton onClick={unMask} /> : <MaskButton onClick={mask} />}</div>
+    return (
+        <div>
+            {isMask ? (
+                <button onClick={unMask}>マスク解除</button>
+            ) : (
+                <button onClick={mask}>マスク</button>
+            )}
+        </div>
+    )
 }
 
 export default MaskContainer

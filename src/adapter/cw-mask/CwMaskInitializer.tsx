@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { createRoot, Root } from 'react-dom/client'
-import { MessageUtilAreaReader } from '../../original-chatwork/reader/MessageUtilAreaReader'
-import MaskContainer from '../component/MaskContainer'
+import { MessageUtilAreaReader } from '../original-chatwork/reader/MessageUtilAreaReader'
+import MaskContainer from './component/MaskContainer'
 
 export const CwMaskInitializer = () => {
     const messageUtilArea: Element = MessageUtilAreaReader.read()
