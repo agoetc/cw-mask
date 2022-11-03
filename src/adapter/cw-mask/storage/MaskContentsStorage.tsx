@@ -1,3 +1,5 @@
+import { MaskContents } from '../domain/MaskContents'
+
 const maskContentsStorage: MaskContents[] = [
     {
         name: 'きりん',
@@ -19,9 +21,4 @@ export const popMaskContentsStorage = (): MaskContents => {
         throw new Error('empty storage')
     }
     return contents
-}
-
-export type MaskContents = {
-    name: string
-    iconPath: string
 }
