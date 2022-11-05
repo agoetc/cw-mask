@@ -13,9 +13,26 @@ const storage: MaskContents[] = [
         name: 'いぬ',
         iconPath: 'https://lh3.google.com/u/0/d/1EmJ2TlgezQE6TSP0S8WdDsK99PMBqHBK=w3840-h1848-iv2',
     },
+    {
+        name: 'はむすたー',
+        iconPath:
+            'https://lh3.google.com/u/0/d/1W4Suj003H4AqO5-3miBO3vfVFO05jvhn=w300-h285-p-k-nu-iv2',
+    },
+    {
+        name: 'ねこ',
+        iconPath:
+            'https://lh3.google.com/u/0/d/1FyA86EMN0agm0WabKLxeOA-9gBuaS91n=w300-h285-p-k-nu-iv2',
+    },
+    {
+        name: 'あるぱか',
+        iconPath:
+            'https://lh3.google.com/u/0/d/1F_ZiyiJfrNqAuzHE-nStN_8DovBrcsZr=w300-h285-p-k-nu-iv2',
+    },
 ]
 
-const maskContentsStorage: MaskContents[] = storage
+let maskContentsStorage: MaskContents[] = [...storage]
+
+export const initStorage = () => (maskContentsStorage = [...storage])
 
 export const popMaskContentsStorage = (): MaskContents => {
     const contents = maskContentsStorage.pop()
