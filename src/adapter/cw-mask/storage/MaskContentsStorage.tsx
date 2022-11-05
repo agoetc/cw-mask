@@ -1,6 +1,6 @@
 import { MaskContents } from '../domain/MaskContents'
 
-const maskContentsStorage: MaskContents[] = [
+const storage: MaskContents[] = [
     {
         name: 'きりん',
         iconPath: 'https://lh3.google.com/u/0/d/1ojuxchgILSgv86JMtc3qBGqSIXxNLahh=w1578-h1848-iv2',
@@ -14,6 +14,8 @@ const maskContentsStorage: MaskContents[] = [
         iconPath: 'https://lh3.google.com/u/0/d/1EmJ2TlgezQE6TSP0S8WdDsK99PMBqHBK=w3840-h1848-iv2',
     },
 ]
+
+const maskContentsStorage: MaskContents[] = storage
 
 export const popMaskContentsStorage = (): MaskContents => {
     const contents = maskContentsStorage.pop()

@@ -5,7 +5,7 @@ export type MessageSpeakerNameElement = HTMLAnchorElement
 export type MessageSpeakerIconElement = HTMLImageElement
 
 export const MessageReader = {
-    getMessageList(): Array<MessageElement> {
+    getMessageList(): MessageElement[] {
         const messageList = document.getElementsByClassName('_message')
         return Array.prototype.slice.call(messageList).filter((message: MessageElement) => {
             return message.getElementsByClassName('_speaker').length != 0
