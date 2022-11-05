@@ -15,21 +15,24 @@ const storage: MaskContents[] = [
     },
     {
         name: 'はむすたー',
-        iconPath: 'https://lh3.google.com/u/0/d/1W4Suj003H4AqO5-3miBO3vfVFO05jvhn=w300-h285-p-k-nu-iv2',
+        iconPath:
+            'https://lh3.google.com/u/0/d/1W4Suj003H4AqO5-3miBO3vfVFO05jvhn=w300-h285-p-k-nu-iv2',
     },
     {
         name: 'ねこ',
-        iconPath: 'https://lh3.google.com/u/0/d/1FyA86EMN0agm0WabKLxeOA-9gBuaS91n=w300-h285-p-k-nu-iv2',
+        iconPath:
+            'https://lh3.google.com/u/0/d/1FyA86EMN0agm0WabKLxeOA-9gBuaS91n=w300-h285-p-k-nu-iv2',
     },
     {
         name: 'あるぱか',
-        iconPath: 'https://lh3.google.com/u/0/d/1F_ZiyiJfrNqAuzHE-nStN_8DovBrcsZr=w300-h285-p-k-nu-iv2',
+        iconPath:
+            'https://lh3.google.com/u/0/d/1F_ZiyiJfrNqAuzHE-nStN_8DovBrcsZr=w300-h285-p-k-nu-iv2',
     },
 ]
 
 let maskContentsStorage: MaskContents[] = [...storage]
 
-export const initStorage = () => maskContentsStorage = [...storage]
+export const initStorage = () => (maskContentsStorage = [...storage])
 
 export const popMaskContentsStorage = (): MaskContents => {
     const contents = maskContentsStorage.pop()
