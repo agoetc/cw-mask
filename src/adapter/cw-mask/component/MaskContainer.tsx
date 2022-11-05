@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { MessageElement, MessageReader } from '../../original-chatwork/reader/MessageReader'
 import { MaskContentsPair } from '../domain/MaskContentsPair'
 import { MaskContents } from '../domain/MaskContents'
-import { popMaskContentsStorage } from '../storage/MaskContentsStorage'
+import { initStorage, popMaskContentsStorage } from '../storage/MaskContentsStorage'
 
 const MaskContainer = () => {
     const [isMask, setIsMask] = useState(false)
@@ -63,6 +63,7 @@ const MaskContainer = () => {
         setIsMask(false)
         setMessageList([])
         setContentsPairList([])
+        initStorage()
     }
 
     return (

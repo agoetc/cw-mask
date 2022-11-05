@@ -27,7 +27,9 @@ const storage: MaskContents[] = [
     },
 ]
 
-const maskContentsStorage: MaskContents[] = storage
+let maskContentsStorage: MaskContents[] = [...storage]
+
+export const initStorage = () => maskContentsStorage = [...storage]
 
 export const popMaskContentsStorage = (): MaskContents => {
     const contents = maskContentsStorage.pop()
