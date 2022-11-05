@@ -11,7 +11,7 @@ const MaskContainer = () => {
     const [contentsPairList, setContentsPairList] = useState<MaskContentsPair[]>([])
 
     const mask = () => {
-        const messageList = MessageReader.getMessageList()
+        const messageList: MessageElement[] = MessageReader.getMessageList()
         const contentsPairList: MaskContentsPair[] = []
 
         messageList.forEach((message) => {
@@ -39,7 +39,7 @@ const MaskContainer = () => {
         })
 
         setIsMask(true)
-        setMessageList(MessageReader.getMessageList())
+        setMessageList(messageList)
         setContentsPairList(contentsPairList)
     }
 
