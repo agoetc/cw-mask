@@ -1,18 +1,18 @@
 import * as React from 'react'
 import { useState } from 'react'
-import { MessageReader } from '../../original-chatwork/reader/MessageReader'
+import { MessageElement, MessageReader } from '../../original-chatwork/reader/MessageReader'
 import { MaskContentsPair } from '../domain/MaskContentsPair'
 import { MaskContents } from '../domain/MaskContents'
 import { popMaskContentsStorage } from '../storage/MaskContentsStorage'
 
 const MaskContainer = () => {
     const [isMask, setIsMask] = useState(false)
-
-    const messageList = MessageReader.getMessageList()
-    const contentsPairList: MaskContentsPair[] = []
+    const [messageList, setMessageList] = useState<MessageElement[]>([])
+    const [contentsPairList, setContentsPairList] = useState<MaskContentsPair[]>([])
 
     const mask = () => {
-        setIsMask(true)
+        const messageList = MessageReader.getMessageList()
+        const contentsPairList: MaskContentsPair[] = []
 
         messageList.forEach((message) => {
             const originalName = MessageReader.getSpeakerName(message)
@@ -23,7 +23,7 @@ const MaskContainer = () => {
             }
 
             let contentsPair = contentsPairList.find(
-                (cp) => cp.originalContents.name == originalName.innerText
+                (cp) => cp.originalContents.name === originalName.innerText
             )
             if (contentsPair === undefined) {
                 const maskContents = popMaskContentsStorage()
@@ -37,10 +37,32 @@ const MaskContainer = () => {
             originalName.innerText = contentsPair.maskContents.name
             originalIcon.src = contentsPair.maskContents.iconPath
         })
+
+        setIsMask(true)
+        setMessageList(MessageReader.getMessageList())
+        setContentsPairList(contentsPairList)
     }
 
     const unMask = () => {
+        messageList.forEach((maskedMessage) => {
+            const maskedName = MessageReader.getSpeakerName(maskedMessage)
+            const maskedIcon = MessageReader.getSpeakerIcon(maskedMessage)
+
+            const contentsPair = contentsPairList.find((cp) => {
+                return cp.maskContents.name === maskedName.innerText
+            })
+
+            if (contentsPair === undefined) {
+                return
+            } else {
+                maskedName.innerText = contentsPair.originalContents.name
+                maskedIcon.src = contentsPair.originalContents.iconPath
+            }
+        })
+
         setIsMask(false)
+        setMessageList([])
+        setContentsPairList([])
     }
 
     return (
