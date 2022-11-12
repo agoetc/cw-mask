@@ -18,11 +18,11 @@ const MaskContainer = () => {
             const originalName = MessageReader.getSpeakerName(message)
             const originalIcon = MessageReader.getSpeakerIcon(message)
             const originalCompanyName = MessageReader.getSpeakerCompanyName(message)
-            
+
             const originalContents: MaskContents = {
                 name: originalName.innerText,
                 iconPath: originalIcon.src,
-                companyName: originalCompanyName.innerHTML
+                companyName: originalCompanyName.innerHTML,
             }
 
             let contentsPair = contentsPairList.find(
