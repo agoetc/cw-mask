@@ -1,6 +1,6 @@
 import { DOMUtil } from '../../../util/dom/DOMUtil'
 
-const MESSAGE_UTIL_AREA_CLASS_NAME = 'sc-ikZpkk gXkDBz'
+const MESSAGE_UTIL_AREA_CLASS_NAME = 'sc-ilhmMj ckKvyz'
 
 export const MessageUtilAreaReader = {
     /**
