@@ -1,4 +1,4 @@
-import {MaskContents} from './MaskContents'
+import { MaskContents } from './MaskContents'
 
 export type MaskContentsPair = {
     originalContents: MaskContents
