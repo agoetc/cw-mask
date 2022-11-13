@@ -13,7 +13,9 @@ export const MessageReader = {
         })
     },
     getSpeakerName(message: MessageElement): MessageSpeakerNameElement {
-        return DOMUtil.checkNull(message.querySelector('[data-testid=timeline_user-name]'))
+        return DOMUtil.checkNull(
+            message.querySelector('[data-testid=timeline_user-name]')
+        ) as HTMLAnchorElement
     },
     getSpeakerIcon(message: MessageElement): MessageSpeakerIconElement {
         return DOMUtil.checkNull(message.getElementsByTagName('img').item(0))

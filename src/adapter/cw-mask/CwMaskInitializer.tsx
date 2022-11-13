@@ -4,7 +4,7 @@ import { MessageUtilAreaReader } from '../original-chatwork/reader/MessageUtilAr
 import MaskContainer from './component/MaskContainer'
 
 export const CwMaskInitializer = () => {
-    const messageUtilArea: Element = MessageUtilAreaReader.read()
+    const messageUtilArea: HTMLDivElement = MessageUtilAreaReader.read()
 
     // original-chatworkにRootElementを追加
     const rootElement: HTMLDivElement = document.createElement('div')
