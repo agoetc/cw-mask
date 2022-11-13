@@ -3,7 +3,7 @@
         "build": "webpack",
         "watch": "webpack -w",
         "format": "prettier --write \"src/**/*.tsx\" \"src/**/*.ts\" \"**.js\" \"**.json\" ",
-        "eslint": "eslint \"src/**/*.tsx\" \"src/**/*.ts\" \"**.js\" \"**.json\" "
+        "eslint": "eslint \"src/**/*.tsx\" \"src/**/*.ts\" \"**.js\" "
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.31.0",
