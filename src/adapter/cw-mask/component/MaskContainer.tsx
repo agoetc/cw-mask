@@ -17,9 +17,12 @@ const MaskContainer = () => {
         messageList.forEach((message) => {
             const originalName = MessageReader.getSpeakerName(message)
             const originalIcon = MessageReader.getSpeakerIcon(message)
+            const originalCompanyName = MessageReader.getSpeakerCompanyName(message)
+
             const originalContents: MaskContents = {
                 name: originalName.innerText,
                 iconPath: originalIcon.src,
+                companyName: originalCompanyName.innerHTML,
             }
 
             let contentsPair = contentsPairList.find(
@@ -36,6 +39,7 @@ const MaskContainer = () => {
 
             originalName.innerText = contentsPair.maskContents.name
             originalIcon.src = contentsPair.maskContents.iconPath
+            originalCompanyName.innerHTML = contentsPair.maskContents.companyName
         })
 
         setIsMask(true)
@@ -47,6 +51,7 @@ const MaskContainer = () => {
         messageList.forEach((maskedMessage) => {
             const maskedName = MessageReader.getSpeakerName(maskedMessage)
             const maskedIcon = MessageReader.getSpeakerIcon(maskedMessage)
+            const maskedCompanyName = MessageReader.getSpeakerCompanyName(maskedMessage)
 
             const contentsPair = contentsPairList.find((cp) => {
                 return cp.maskContents.name === maskedName.innerText
@@ -57,6 +62,7 @@ const MaskContainer = () => {
             } else {
                 maskedName.innerText = contentsPair.originalContents.name
                 maskedIcon.src = contentsPair.originalContents.iconPath
+                maskedCompanyName.innerHTML = contentsPair.originalContents.companyName
             }
         })
 

@@ -3,6 +3,7 @@ import { DOMUtil } from '../../../util/dom/DOMUtil'
 export type MessageElement = HTMLElement
 export type MessageSpeakerNameElement = HTMLAnchorElement
 export type MessageSpeakerIconElement = HTMLImageElement
+export type MessageSpeakerCompanyNameElement = Element
 
 export const MessageReader = {
     getMessageList(): MessageElement[] {
@@ -16,5 +17,8 @@ export const MessageReader = {
     },
     getSpeakerIcon(message: MessageElement): MessageSpeakerIconElement {
         return DOMUtil.checkNull(message.getElementsByTagName('img').item(0))
+    },
+    getSpeakerCompanyName(message: MessageElement): MessageSpeakerCompanyNameElement {
+        return DOMUtil.checkNull(message.getElementsByClassName('sc-hrXEzC frFtxh').item(0))
     },
 }
