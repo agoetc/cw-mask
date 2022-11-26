@@ -21,8 +21,6 @@ export const MessageReader = {
         return DOMUtil.checkNull(message.getElementsByTagName('img').item(0))
     },
     getSpeakerCompanyName(message: MessageElement): MessageSpeakerCompanyNameElement {
-        return DOMUtil.checkNull(
-            message?.children.item(0)?.children.item(1)?.children.item(0)?.children.item(1)
-        ) as HTMLParagraphElement
+        return DOMUtil.checkNull(message.getElementsByTagName('p').item(1))
     },
 }
